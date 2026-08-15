@@ -1,26 +1,30 @@
 import streamlit as st
 
-# 终极强力清除 Streamlit 官方所有的红帽子、菜单、页脚和右下角标志
+# 终极净化：强力清除所有官方红帽子、右上角按钮及右下角悬浮作者徽标
 hide_streamlit_style = """
 <style>
-/* 1. 隐藏顶部的整条 Header（包含红帽子、GitHub 链接等） */
+/* 1. 隐藏顶部整条 Header（红帽子、部署按钮等） */
 header {visibility: hidden !important; display: none !important;}
 [data-testid="stHeader"] {visibility: hidden !important; display: none !important;}
 
-/* 2. 隐藏右下角的 "Made with Streamlit" 页脚和浮动标志 */
+/* 2. 隐藏默认页脚 */
 footer {visibility: hidden !important; display: none !important;}
 [data-testid="stFooter"] {visibility: hidden !important; display: none !important;}
 
-/* 3. 隐藏右上角的 Deploy 部署按钮 */
-.stAppDeployButton {display: none !important;}
+/* 3. 强制干掉右下角的 Streamlit 悬浮徽标（红帽子与 Created by 账号名） */
+#viewerBadge {display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;}
+[data-testid="stDecoration"] {display: none !important;}
+[data-testid="stStatusWidget"] {display: none !important;}
 
-/* 4. 隐藏右上角的三条杠主菜单 */
+/* 4. 针对类名动态生成的悬浮窗进行全局隐藏 */
+div[class*="viewerBadge"] {display: none !important; visibility: hidden !important;}
+
+/* 5. 隐藏右上角三条杠菜单 */
 #MainMenu {visibility: hidden !important; display: none !important;}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 import os
 import json
