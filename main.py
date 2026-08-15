@@ -1,3 +1,16 @@
+import streamlit as st
+
+# 隐藏 Streamlit 默认的 Menu、Footer、以及右上角的 GitHub/Fork 图标
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.stAppDeployButton {display:none;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 import os
 import json
 import requests
