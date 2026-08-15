@@ -1,14 +1,25 @@
 import streamlit as st
 
-# 隐藏 Streamlit 默认的 Menu、Footer、以及右上角的 GitHub/Fork 图标
+# 终极强力清除 Streamlit 官方所有的红帽子、菜单、页脚和右下角标志
 hide_streamlit_style = """
 <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-.stAppDeployButton {display:none;}
+/* 1. 隐藏顶部的整条 Header（包含红帽子、GitHub 链接等） */
+header {visibility: hidden !important; display: none !important;}
+[data-testid="stHeader"] {visibility: hidden !important; display: none !important;}
+
+/* 2. 隐藏右下角的 "Made with Streamlit" 页脚和浮动标志 */
+footer {visibility: hidden !important; display: none !important;}
+[data-testid="stFooter"] {visibility: hidden !important; display: none !important;}
+
+/* 3. 隐藏右上角的 Deploy 部署按钮 */
+.stAppDeployButton {display: none !important;}
+
+/* 4. 隐藏右上角的三条杠主菜单 */
+#MainMenu {visibility: hidden !important; display: none !important;}
 </style>
 """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 import os
