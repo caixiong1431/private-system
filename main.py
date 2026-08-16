@@ -97,7 +97,7 @@ with col_right:
             if not st.session_state.admin_logged_in:
                 admin_pwd = st.text_input("管理密码", type="password")
                 if st.button("登录管理"):
-                    if admin_pwd == "888888":  
+                    if admin_pwd == ADMIN_SECRET_PWD:
                         st.session_state.admin_logged_in = True
                         st.rerun()
                     else:
